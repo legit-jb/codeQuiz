@@ -9,8 +9,6 @@ var instructions = "Answer the following code related questions. Any wrong answe
 var round = 1;
 
 function cleanup(elementA, elementB) {
-    console.log(elementB);
-    console.log(elementA);
     elementA.remove();
     elementB.remove();
 
@@ -24,14 +22,7 @@ function cleanup(elementA, elementB) {
 
 function gameOver() {
     timeLimit = 0;
-    var answersWrapper = document.createElement("div");
-    answerSide.appendChild(answersWrapper);
 
-    var questionWrapper = document.createElement("div");
-    questionSide.appendChild(questionWrapper);
-
-    questionWrapper.remove ();
-    answersWrapper.remove ();
     var directions = document.createElement("p");
     directions.textContent = "GAME OVER";
     quesitonSide.appendChild(directions);
