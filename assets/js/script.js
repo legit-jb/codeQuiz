@@ -24,6 +24,14 @@ function cleanup(elementA, elementB) {
 
 function gameOver() {
     timeLimit = 0;
+    var answersWrapper = document.createElement("div");
+    answerSide.appendChild(answersWrapper);
+
+    var questionWrapper = document.createElement("div");
+    questionSide.appendChild(questionWrapper);
+
+    questionWrapper.remove ();
+    answersWrapper.remove ();
     var directions = document.createElement("p");
     directions.textContent = "GAME OVER";
     quesitonSide.appendChild(directions);
@@ -177,58 +185,12 @@ function timer() {
             timeLimit--;
         } else {
             timeLimit = 0;
-            clearTimeout(myVar);
             document.getElementById("countdown").innerHTML = timeLimit;
-            gameOver;
+            showQuestion();
+            clearTimeout(myVar);
         }
         // end if else statement
     }
     // end myTimer function
 }
 // end timer function
-
-
-
-
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
-
-
-
-
-
-function startTimer(time) {
-    counter = setInterval(timer, 1000);
-    function timer() {
-        timeCount.textContent = time; //changing the value of timeCount with time value
-        time--; //decrement the time value
-        if (time < 9) { //if timer is less than 9
-            let addZero = timeCount.textContent;
-            timeCount.textContent = "0" + addZero; //add a 0 before time value
-        }
-        if (time < 0) { //if timer is less than 0
-            clearInterval(counter); //clear counter
-            timeText.textContent = "Time Off"; //change the time text to time off
-            const allOptions = option_list.children.length; //getting all option items
-            let correcAns = questions[que_count].answer; //getting correct answer from array
-            for (i = 0; i < allOptions; i++) {
-                if (option_list.children[i].textContent == correcAns) { //if there is an option which is matched to an array answer
-                    option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
-                    option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                    console.log("Time Off: Auto selected correct answer.");
-                }
-            }
-            for (i = 0; i < allOptions; i++) {
-                option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
-            }
-            next_btn.classList.add("show"); //show the next button if user selected any option
-        }
-    }
-}
