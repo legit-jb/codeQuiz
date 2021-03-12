@@ -44,6 +44,28 @@ nav li a:hover {
     color:var(--jwhite);
 }
 
+#scoreboard {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#countdown, #correctamundo {
+    height: 30px;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color:var(--jblack);
+    color:var(--jwhite);
+    font-size: 125%;
+    /* flex: 1 0 30%; */
+}
+
 .card {
     margin: 1%;
     background-color:var(--jgray);
@@ -52,39 +74,36 @@ nav li a:hover {
     border-radius: 20px;
     border: 1px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#questionSide, #answerSide {
+    flex: 1 0 300px;
+    padding: 3%;
+    text-align: center;
+}
+
+#answerSide {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#textarea {
-    width: 60%;
-    height: 80%;
-    padding: 10%;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    /* border: 0px;
-    background-color: inherit; */
-}
-
-#questionSide {
-    width: 45%;
-    border: 1px;
-    border-color: black;
-}
-
 button {
     appearance: none;
-    padding: .5%;
     padding-left: 2%;
     padding-right: 2%;
-    margin: 1%;
-    border-radius: 5px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 10px;
     border-width: 0px;
     background-color:var(--jblack);
     color:var(--jwhite);
     font-size: 125%;
     cursor: pointer;
+    width: 90%;
 }
 
 button:hover {
@@ -95,8 +114,3 @@ button:hover {
 button:active {
     background-color:var(--jdarkgray);
 }
-
-#input {
-    position: relative;   
-}
-
